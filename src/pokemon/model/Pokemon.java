@@ -82,7 +82,16 @@ public abstract class Pokemon
 	{
 		return canEvolve;
 	}
+	
+	/**
+	 * @return the Number
+	 */
 
+	public int getNumber()
+	{
+		return number;	
+	}
+	
 	/**
 	 * @param healthPoints the healthPoints to set
 	 */

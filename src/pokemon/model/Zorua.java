@@ -1,6 +1,6 @@
 package pokemon.model;
 
-public class Zorua extends Pokemon implements dark
+public class Zorua extends Pokemon implements Dark
 {
 	public Zorua()
 	{
