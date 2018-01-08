@@ -31,7 +31,7 @@ public abstract class Pokemon
 	
 	public String toString()
 	{
-		String description = "Hi, I am a " + name + ", and my HP is " + healthPoints;
+		String description = "Hi, I am " + name + ", and my HP is " + healthPoints;
 		
 		return description;
 	}

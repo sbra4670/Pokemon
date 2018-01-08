@@ -23,6 +23,12 @@ public class PokemonController
 		return false;
 	}
 	
+	private void buildPokedex()
+	{
+		
+	}
+
+	
 	public void start()
 	{
 		

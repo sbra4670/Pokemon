@@ -5,7 +5,7 @@ import javax.swing.JLabel;
 import javax.swing.*;
 
 public class PokedexPanel extends JPanel
-{
+{	
 	private PokemonController appController;
 	private JCheckBox evolvableBox;
 	private JTextField nameField;
@@ -23,4 +23,19 @@ public class PokedexPanel extends JPanel
 		healthField.setText(appController.getPokedex().get(index).getHealthPoints()+ "");
 		modifierField.setText(appController.getPokedex().get(index).getEnhancmentModifier() + "");
 	}
+	
+	public PokedexPanel(PokemonController appController) 
+	{
+		super();
+		this.appController = appController;
+		
+		appLayout = new SpringLayout();
+		
+		evolvableBox = new JCheckBox();
+		nameField = new JTexField("name");
+		numberField = new JtextField('##');
+		
+		
+	}
 }
+ 
