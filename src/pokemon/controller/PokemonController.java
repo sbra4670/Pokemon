@@ -3,10 +3,12 @@ package pokemon.controller;
 import pokemon.model.Pokemon;
 import java.util.List;
 import java.util.ArrayList;
+import pokemon.view.PokedexFrame;
 
 public class PokemonController
 {
 	private List <Pokemon> pokedex;
+	private PokemonFrame appFrame;
 	
 	public List<Pokemon> getPokedex()
 	{

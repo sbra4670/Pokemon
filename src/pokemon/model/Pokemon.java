@@ -1,5 +1,8 @@
 package pokemon.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Pokemon
 {
 	private int healthPoints;
@@ -27,6 +30,14 @@ public abstract class Pokemon
 			pokeTypes[index] = currentInterface;
 		}
 		return pokeTypes;
+	}
+	
+	public String[] getPokemonTypes()
+	{
+		String [] types = null; 
+		ArrayList<String> parentType = new ArrayList<String>();
+		Class<?> currentClass = this.getClass();
+		
 	}
 	
 	public String toString()

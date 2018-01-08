@@ -97,7 +97,7 @@ public class PokedexPanel extends JPanel
 	private void setupComboBox()
 	{
 		DefaultComboBoxModel pokemonModel = new DefaultComboBoxModel(appController.convertPokedex());
-		PokedexDropdown.setModel(pokemonModel);
+		pokedexDropdown.setModel(pokemonModel);
 	}
 	
 	private void setupTypePanels()
