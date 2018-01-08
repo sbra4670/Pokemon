@@ -2,20 +2,43 @@ package pokemon.controller;
 
 import javax.swing.JPanel.*;
 import javax.swing.JLabel;
-
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import java.awt.Color;
-
 import javax.swing.*;
+import pokemon.controller.PokemonController;
 
 public class PokedexPanel extends JPanel
 {	
 	private PokemonController appController;
+	private SpringLayout appLayout;
+	
+	private JLabel healthLabel;
+	private JLabel attackLabel;
+	private JLabel nameLabel;
+	private JLabel numberLabel;
+	private JLabel evolvableLabel;
+	private JLabel modifierLabel;
+	private JLabel iconLabel;
+
 	private JCheckBox evolvableBox;
 	private JTextField nameField;
 	private JTextField numberField;
 	private JTextField attackField;
 	private JTextField healthField;
 	private JTextField modifierField;
+	
+	private JTextArea descriptionArea;
+	private JTextArea typeArea;
+	
+	private JButton saveButton;
+	private JButton clearButton;
+	private JComboBox pokedexDropdown;
+	
+	private JPanel firstType;
+	private JPanel secondType;
+	private JPanel thirdType;
+	private JPanel fourthType;
 	
 	private void updatePokedexInfo(int index)
 	{
@@ -45,10 +68,28 @@ public class PokedexPanel extends JPanel
 		
 		nameLabel = new JLabel("name");
 		evolvableLabel = new JLabel("evolvable");
-		numberLabel = new Jlabel("number");
+		numberLabel = new JLabel("number");
 		attackLabel = new JLabel("attack");
 		healthLabel = new JLabel("health");
 		modifierLabel = new JLabel("modifier");
+		
+		pokedexDropdown = new JComboBox();
+		clearButton = new JButton("clear");
+		saveButton = new JButton("save");
+		
+		descriptionArea = JTextArea(5, 10);
+		typeArea = newJTextArea(4,15);
+		
+		firstType = newJPanel();
+		secondType = newJPanel(); 
+		thirdType = newJPanel();
+		fourthType = newJPanel();
+		
+		setupComboBox();
+		setupTypePanels();
+		setupPanel();
+		setupLayout();
+		setupListeners();
 		
 		
 	}
@@ -99,7 +140,7 @@ public class PokedexPanel extends JPanel
 		
 		else 
 		{
-			firstType.setBackround(Color.WHITE);
+			firstType.setBackground(Color.WHITE);
 		}
 		
 		if(types.length > 1)
@@ -114,7 +155,7 @@ public class PokedexPanel extends JPanel
 			{
 				if (types[2].equals("Electric"))
 				{
-					thirdType.setBackground(Color.YELLOW)
+					thirdType.setBackground(Color.YELLOW);
 				}
 				//...continue as above
 			}
@@ -124,6 +165,21 @@ public class PokedexPanel extends JPanel
 	private void setupLayout()
 	{
 		
+	}
+	
+	private void setupListeners()
+	{
+		pokedexDropdown.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent selection)
+			{
+				int selectedPokemonIndex = pokedexDropdown.getSelectedIndex();
+				updatePokedexInfo(selectedPokemonIndex);
+				updateImage();
+				updateTypePanels();
+				repaint();
+			}
+		});
 	}
 }
  
