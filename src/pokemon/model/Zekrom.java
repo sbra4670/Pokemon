@@ -3,9 +3,9 @@ package pokemon.model;
 public class Zekrom extends Pokemon implements Electric, Dragon
 {
 
-	public Zekrom(int number, String name)
+	public Zekrom()
 	{
-		super(number, name);
+		super(attackPoints, healthPoints, );
 
 	}
 

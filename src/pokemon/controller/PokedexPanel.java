@@ -48,6 +48,14 @@ public class PokedexPanel extends JPanel
 		attackField.setText(appController.getPokedex().get(index). getAttackPoints() + "");
 		healthField.setText(appController.getPokedex().get(index).getHealthPoints()+ "");
 		modifierField.setText(appController.getPokedex().get(index).getEnhancmentModifier() + "");
+		
+		descriptionArea.setText(appController.getPokedex().get(index).toString());
+		typeArea.setText("");
+		
+		for (String current : ((PokemonController) appController.getPokedex()).getPokedex().get(index).getPokemonTypes())
+		{
+			typeArea.append(current+ "\n");
+		}
 	}
 	
 	public PokedexPanel(PokemonController appController) 
@@ -77,13 +85,13 @@ public class PokedexPanel extends JPanel
 		clearButton = new JButton("clear");
 		saveButton = new JButton("save");
 		
-		descriptionArea = JTextArea(5, 10);
-		typeArea = newJTextArea(4,15);
+		descriptionArea = new JTextArea(5, 10);
+		typeArea = new JTextArea(4,15);
 		
-		firstType = newJPanel();
-		secondType = newJPanel(); 
-		thirdType = newJPanel();
-		fourthType = newJPanel();
+		firstType = new JPanel();
+		secondType = new JPanel(); 
+		thirdType = new JPanel();
+		fourthType = new JPanel();
 		
 		setupComboBox();
 		setupTypePanels();
@@ -115,7 +123,22 @@ public class PokedexPanel extends JPanel
 	
 	private void updateImage()
 	{
+		String path = "/pokemon/view/images/Poké_Ball.png";
+		String defaultName = "Poké_Ball.png";
+		String name = pokedexDropdown.getSelectedItem().toString();
+		String extension = ".png";
+		ImageIcon pokemonIcon;
 		
+		try
+		{
+			pokemonIcon = new ImageIcon(getClass().getResource(path + name + extension));
+		}
+		catch (NullPointerException missingImageFile)
+		{
+			pokemonIcon = new ImageIcon(getClass().getResource(path + name + extension));
+		}
+		
+		iconLabel.setIcon(pokemonIcon);
 	}
 	
 	private void updateTypePanels()
