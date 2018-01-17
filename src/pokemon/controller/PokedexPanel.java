@@ -203,6 +203,26 @@ public class PokedexPanel extends JPanel
 				repaint();
 			}
 		});
+		
+		saveButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				if(appController.isValidInteger(attackField.getText()) && appController.isValidInteger(healthField.getText())
+						&& appController.isValidDouble(modifierField.getText()))
+				{
+					int selected = pokedexDropdown.getSelectedIndex();
+					int health = Integer.parseInt(healthField.getText());
+					int attack = Integer.parseInt(attackField.getText());
+					String name = nameField.getText();
+					boolean evolvable = evolvableBox.isSelected();
+					double modifier = Double.parseDouble(modifierField.getText());
+					
+					appController.updateSelected(selected, health, attack, evolvable, modifier, name);
+				}
+			}
+		});
+		
 	}
 }
  

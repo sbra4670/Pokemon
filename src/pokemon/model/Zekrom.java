@@ -5,7 +5,7 @@ public class Zekrom extends Pokemon implements Electric, Dragon
 
 	public Zekrom()
 	{
-		super(attackPoints, healthPoints, );
+	
 
 	}
 
